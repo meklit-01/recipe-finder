@@ -4,11 +4,11 @@ import RecipeDetails from "./components/RecipeDetails"
 import "./App.css"
 
 function App() {
-const [recipes, setRecipes] = useState([])
-const [categories, setCategories] = useState([])
-const [selectedCategory, setSelectedCategory] = useState("All")
-const [search, setSearch] = useState("")
-const [favorites, setFavorites] = useState(() => {
+  const [recipes, setRecipes] = useState([])
+  const [categories, setCategories] = useState([])
+  const [selectedCategory, setSelectedCategory] = useState("All")
+  const [search, setSearch] = useState("")
+  const [favorites, setFavorites] = useState(() => {
   const savedFavorites = localStorage.getItem("favorites")
 
   return savedFavorites
@@ -60,7 +60,7 @@ useEffect(() => {
 })
 
   if (loading) {
-    return <h1>Loading recipes...</h1>
+    return <p>Loading recipes...</p>
   }
 
   if (error) {
@@ -88,13 +88,13 @@ useEffect(() => {
       <h1>Recipe </h1>
 
       <div className="search-box">
-  <input
-    type="text"
-    placeholder="Search recipes..."
-    value={search}
-    onChange={(e) => setSearch(e.target.value)}
+      <input
+      type="text"
+      placeholder="Search recipes..."
+      value={search}
+      onChange={(e) => setSearch(e.target.value)}
   />
-  </div>
+    </div>
 
       <div className="category-bar">
         <button
@@ -105,43 +105,39 @@ useEffect(() => {
         </button>
         <div className="category-bar">
 
-  <button
-    className={selectedCategory === "Dessert" ? "active" : ""}
-    onClick={() => setSelectedCategory("Dessert")}
-  >
-    Dessert
-  </button>
+        <button
+          className={selectedCategory === "Dessert" ? "active" : ""}
+          onClick={() => setSelectedCategory("Dessert")}
+        >
+          Dessert
+        </button>
 
-  <button
-    className={selectedCategory === "Chicken" ? "active" : ""}
-    onClick={() => setSelectedCategory("Chicken")}
-  >
-    Chicken
-  </button>
+        <button
+          className={selectedCategory === "Chicken" ? "active" : ""}
+          onClick={() => setSelectedCategory("Chicken")}
+        >
+          Chicken
+        </button>
 
-  <button
-    className={selectedCategory === "Beef" ? "active" : ""}
-    onClick={() => setSelectedCategory("Beef")}
-  >
-    Beef
-  </button>
+        <button
+          className={selectedCategory === "Beef" ? "active" : ""}
+          onClick={() => setSelectedCategory("Beef")}
+        >
+           Beef
+        </button>
 
-  <button
-    className={selectedCategory === "Side" ? "active" : ""}
-    onClick={() => setSelectedCategory("Side")}
-  >
-    Side
-  </button>
-</div>
+        <button
+        className={selectedCategory === "Side" ? "active" : ""}
+        onClick={() => setSelectedCategory("Side")}
+        >
+          Side
+        </button>
+      </div>
 
         {categories.map((category) => (
           <button
             key={category.idCategory}
-            className={
-              selectedCategory === category.strCategory
-                ? "active"
-                : ""
-            }
+            
             onClick={() =>
               setSelectedCategory(category.strCategory)
             }
@@ -154,22 +150,20 @@ useEffect(() => {
       <div className="recipe-grid">
         {filteredRecipes.map((recipe) => (
           <RecipeCard
-  key={recipe.idMeal}
-  recipe={recipe}
-  isFavorite={favorites.some(
-    (favorite) => favorite.idMeal === recipe.idMeal
-  )}
-  onFavorite={toggleFavorite}
-  onViewRecipe={setSelectedRecipe}
+          key={recipe.idMeal}
+          recipe={recipe}
+          isFavorite={favorites.some(
+          (favorite) => favorite.idMeal === recipe.idMeal
+        )}
+      onFavorite={toggleFavorite}
+      onViewRecipe={setSelectedRecipe}
 />
         ))}
       </div>
       {/* Favorites */}
-<h2 className="favorites-title">
-  My Favorites
-</h2>
+    <h2 className="favorites-title">My Favorites</h2>
 
-<div className="recipe-grid">
+    <div className="recipe-grid">
   {favorites.map((recipe) => (
     <RecipeCard
       key={recipe.idMeal}
@@ -179,8 +173,8 @@ useEffect(() => {
       onViewRecipe={setSelectedRecipe}
     />
   ))}
-</div>
-   {selectedRecipe && (
+    </div>
+    {selectedRecipe && (
       <div className="recipe-modal">
         <RecipeDetails
           recipe={selectedRecipe}

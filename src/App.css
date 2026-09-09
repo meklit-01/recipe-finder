@@ -63,13 +63,14 @@ h1 {
   padding: 10px 16px;
   border: none;
   border-radius: 20px;
-  background: #6c151e;
+  background:  #ddd ;
   cursor: pointer;
   font-size: 14px;
 }
 
 .category-bar button:hover {
-  background: #ddd;
+  background:#6c151e;
+  color: #f5dabf;
 }
 .favorite-button{
   padding: 10px 16px;
