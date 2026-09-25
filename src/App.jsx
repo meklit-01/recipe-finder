@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import RecipeCard from "./components/RecipeCard"
 import RecipeDetails from "./components/RecipeDetails"
 import "./App.css"
+import Footer from "./components/Footer"
+import Home from "./page/Home"
 
 function App() {
   const [recipes, setRecipes] = useState([])
@@ -183,6 +185,7 @@ useEffect(() => {
       </div>
     )}
 
+   <Footer/>
     </div>
   )
 }

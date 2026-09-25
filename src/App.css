@@ -224,10 +224,13 @@ h1 {
 .footer {
 display: flex;
 justify-content: center;
-background-color: rgb(28, 28, 28);
+background-color: rgb(42, 39, 39);
 color: white;
 padding: 10px;
 
+}
+.home-page{
+  background-image: url(/recipe-finder/public/image/home-banner.jfif);
 }
 
 @media (min-width: 560px) {
