@@ -221,6 +221,14 @@ h1 {
   font-weight: bold;
   font-size: 50px;
 }
+.footer {
+display: flex;
+justify-content: center;
+background-color: rgb(28, 28, 28);
+color: white;
+padding: 10px;
+
+}
 
 @media (min-width: 560px) {
   .recipe-grid {
